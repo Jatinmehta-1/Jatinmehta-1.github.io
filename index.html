@@ -1,0 +1,1045 @@
+<title>Jatin Mehta — A Reel in Four Parts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap">
+
+<style>
+/* ==========================================================
+   JATIN MEHTA — Director · Videographer · Editor · Creator
+   Cinematic treatment: teal-and-amber grade on deep navy,
+   warm cream type, letterboxed photography, no interface HUD.
+   ========================================================== */
+
+:root{
+  --black:#06080D;
+  --navy:#0A1220;
+  --navy2:#101C2E;
+
+  /* the grade — teal / amber / rose / violet */
+  --teal:#3E9AA8;
+  --amber:#E9B36B;
+  --rose:#D9718F;
+  --viol:#9B8BD0;
+
+  --cream:#F1EBE1;
+  --sand:#B5AB9C;
+  --dim:#6B7484;
+
+  --hair:rgba(241,235,225,.13);
+  --hair2:rgba(241,235,225,.07);
+
+  --pad:clamp(20px,5vw,84px);
+  --maxw:1340px;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --slow:cubic-bezier(.4,0,.2,1);
+
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--cream);
+  font-family:'Chakra Petch',ui-sans-serif,system-ui,'Segoe UI',sans-serif;
+  font-weight:300;
+  font-size:clamp(15px,.5vw+13.5px,16.5px);
+  line-height:1.72;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+
+/* ---------- film grain + vignette, nothing else ---------- */
+.grain{
+  position:fixed;inset:-60%;z-index:60;pointer-events:none;
+  opacity:.16;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+}
+.vig{
+  position:fixed;inset:0;z-index:59;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 45%,transparent 48%,rgba(3,5,9,.55) 100%);
+}
+
+/* the only progress indicator: a hairline advancing at the foot of the frame */
+.reel{
+  position:fixed;left:0;right:0;bottom:0;height:2px;z-index:61;
+  background:rgba(241,235,225,.08);
+}
+.reel i{
+  display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--teal),var(--amber));
+  box-shadow:0 0 14px rgba(233,179,107,.5);
+}
+
+/* ---------- type ---------- */
+h1,h2,h3{margin:0;font-weight:600;line-height:1.06}
+
+.title{
+  text-transform:uppercase;
+  letter-spacing:.085em;
+  font-weight:600;
+}
+
+.eyebrow{
+  font-size:10.5px;font-weight:500;letter-spacing:.36em;
+  text-transform:uppercase;color:var(--amber);margin:0;
+}
+.eyebrow--q{color:var(--dim)}
+
+.lede{
+  font-size:clamp(16px,1.45vw,20px);line-height:1.66;
+  color:var(--sand);font-weight:300;max-width:52ch;
+}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* ---------- buttons: quiet, letterpressed, no neon ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:11px;
+  padding:15px 28px;border:1px solid var(--hair);
+  background:rgba(241,235,225,.035);
+  color:var(--cream);font-family:inherit;
+  font-size:10.5px;font-weight:500;letter-spacing:.28em;
+  text-transform:uppercase;text-decoration:none;cursor:pointer;
+  transition:background .5s var(--slow),border-color .5s var(--slow),color .5s var(--slow),transform .4s var(--ease);
+}
+.btn:hover,.btn:focus-visible{
+  background:rgba(233,179,107,.12);
+  border-color:rgba(233,179,107,.55);
+  color:#FFF6E8;transform:translateY(-1px);
+}
+.btn--amber{
+  background:rgba(233,179,107,.14);
+  border-color:rgba(233,179,107,.45);
+  color:#FFF3E2;
+}
+.btn--amber:hover{background:rgba(233,179,107,.24)}
+.btn i{font-style:normal;transition:transform .45s var(--ease)}
+.btn:hover i{transform:translateX(5px)}
+:focus-visible{outline:1px solid var(--amber);outline-offset:4px}
+
+/* ==========================================================
+   TITLE CARD
+   ========================================================== */
+.card{
+  position:relative;
+  padding:clamp(84px,13vh,140px) 0 clamp(56px,8vh,92px);
+  border-bottom:1px solid var(--hair2);
+  background:linear-gradient(180deg,#080D18 0%,var(--black) 100%);
+}
+/* one soft light source, no photograph behind the type */
+.card::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(64% 52% at 68% 34%,rgba(233,179,107,.10),transparent 66%);
+}
+.card__in{position:relative;z-index:2;width:100%}
+.card__g{
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+  gap:clamp(32px,5vw,78px);align-items:center;
+}
+
+/* shared contained portrait frame — never full-bleed */
+.frame{
+  position:relative;aspect-ratio:4/5;overflow:hidden;
+  border:1px solid var(--hair);background:var(--navy2);
+  max-width:392px;margin-left:auto;
+}
+.frame img{
+  width:100%;height:100%;object-fit:cover;object-position:50% 20%;
+  filter:saturate(.94) contrast(1.09) brightness(.95) sepia(.09);
+}
+.frame::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(0deg,rgba(6,8,13,.6),transparent 46%);
+}
+.frame__cap{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;padding:15px 17px;
+  font-size:9px;font-weight:500;letter-spacing:.26em;
+  text-transform:uppercase;color:rgba(241,235,225,.8);
+}
+
+.card__meta{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:clamp(20px,3.4vh,32px);
+}
+.card__meta span{
+  font-size:9.5px;font-weight:500;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--sand);
+}
+.card__meta b{
+  width:5px;height:5px;border-radius:50%;background:var(--amber);
+  box-shadow:0 0 12px var(--amber);
+}
+.card__meta i{flex:1;height:1px;background:var(--hair2);max-width:120px}
+
+.card h1{
+  font-size:clamp(40px,8.6vw,124px);
+  line-height:.98;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  color:#FBF7F0;
+  text-shadow:0 2px 40px rgba(6,8,13,.8);
+}
+.card h1 em{
+  display:block;font-style:normal;font-weight:300;
+  letter-spacing:.13em;
+  color:rgba(251,247,240,.78);
+}
+
+.roles{
+  display:flex;flex-wrap:wrap;align-items:center;
+  margin:clamp(20px,3vh,30px) 0 0;padding:0;list-style:none;
+  font-size:clamp(9.5px,.95vw,11.5px);font-weight:500;
+  letter-spacing:.3em;text-transform:uppercase;
+}
+.roles li{color:var(--sand)}
+.roles li+li::before{
+  content:'';display:inline-block;vertical-align:middle;
+  width:5px;height:1px;background:var(--hair);margin:0 14px;
+}
+.roles li:nth-child(1){color:var(--rose)}
+.roles li:nth-child(2){color:var(--teal)}
+.roles li:nth-child(3){color:var(--amber)}
+.roles li:nth-child(4){color:var(--viol)}
+
+.card__lede{margin:clamp(20px,3vh,28px) 0 0;max-width:38ch}
+.card__act{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:clamp(26px,4vh,38px)}
+
+/* ---------- socials ---------- */
+.soc{display:flex;align-items:center;gap:9px;margin:0;padding:0;list-style:none}
+.soc a{
+  display:grid;place-items:center;width:44px;height:44px;
+  border:1px solid var(--hair);background:rgba(241,235,225,.03);
+  transition:border-color .45s var(--slow),background .45s var(--slow),transform .4s var(--ease);
+}
+/* full brand colour at rest — these are meant to be found, not discovered */
+.soc img{
+  width:19px;height:19px;object-fit:contain;
+  transition:transform .45s var(--ease);
+}
+.soc a:hover,.soc a:focus-visible{transform:translateY(-2px);background:rgba(241,235,225,.09)}
+.soc a:hover img,.soc a:focus-visible img{transform:scale(1.1)}
+
+/* the end card gets the loud, labelled version */
+.soc--big{gap:12px;flex-wrap:wrap}
+.soc--big a{
+  width:auto;height:auto;padding:15px 22px;gap:12px;
+  display:inline-flex;align-items:center;
+  background:rgba(241,235,225,.06);
+  font-size:10.5px;font-weight:500;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--cream);text-decoration:none;
+}
+.soc--big img{width:24px;height:24px}
+.soc--big a[data-s="ig"]:hover{border-color:var(--rose);background:rgba(217,113,143,.16)}
+.soc--big a[data-s="yt"]:hover{border-color:#FF4B4B;background:rgba(255,75,75,.16)}
+.soc--big a[data-s="li"]:hover{border-color:var(--teal);background:rgba(62,154,168,.16)}
+.soc a[data-s="ig"]:hover{border-color:rgba(217,113,143,.6)}
+.soc a[data-s="yt"]:hover{border-color:rgba(220,70,70,.6)}
+.soc a[data-s="li"]:hover{border-color:rgba(62,154,168,.6)}
+
+/* ==========================================================
+   BRANDS
+   ========================================================== */
+.brands{
+  padding:clamp(40px,5vw,64px) 0;
+  border-bottom:1px solid var(--hair2);
+  background:var(--black);
+  overflow:hidden;
+}
+.brands__lab{
+  text-align:center;margin:0 0 clamp(24px,3vw,36px);
+  font-size:9.5px;font-weight:500;letter-spacing:.34em;
+  text-transform:uppercase;color:var(--dim);
+}
+.marq{
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+}
+/* four copies, translating exactly half the track — so the seam never
+   lands on screen and the belt never runs into empty space */
+.marq ul{
+  display:flex;align-items:center;width:max-content;
+  margin:0;padding:0;list-style:none;animation:slide 22s linear infinite;
+}
+.marq:hover ul{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* Back to the quiet treatment: every mark normalised to the same white,
+   floating on the dark. No plates. */
+.mark{
+  display:flex;align-items:center;justify-content:center;
+  height:48px;padding:0 clamp(26px,3.6vw,60px);
+}
+.mark img{
+  max-height:100%;max-width:clamp(100px,12vw,150px);width:auto;object-fit:contain;
+  filter:brightness(0) invert(1);opacity:.4;
+  transition:opacity .5s var(--slow),filter .5s var(--slow);
+}
+/* BigMuscles already ships white artwork, so it skips the flatten */
+.mark img.inv{filter:none;opacity:.4}
+.mark:hover img{opacity:.95;filter:brightness(0) invert(1) drop-shadow(0 0 16px rgba(233,179,107,.55))}
+.mark:hover img.inv{opacity:1;filter:drop-shadow(0 0 16px rgba(233,179,107,.55))}
+.marq li+li .mark{border-left:1px solid var(--hair2)}
+
+/* ==========================================================
+   ABOUT
+   ========================================================== */
+.about{padding:clamp(74px,10vw,140px) 0;border-bottom:1px solid var(--hair2)}
+/* clip, words, clip — the text sits between the two shoots */
+.about__g{
+  display:grid;
+  grid-template-columns:minmax(0,.62fr) minmax(0,1.26fr) minmax(0,.62fr);
+  gap:clamp(22px,3vw,46px);align-items:center;
+}
+.about__g .clip{width:100%}
+.about h2{
+  font-size:clamp(27px,3.7vw,54px);
+  letter-spacing:.03em;color:#FBF7F0;margin-bottom:24px;
+}
+.about p{margin:0 0 18px;color:var(--sand);max-width:54ch}
+.about a{
+  color:var(--rose);text-decoration:none;
+  border-bottom:1px solid rgba(217,113,143,.4);
+  transition:color .4s var(--slow),border-color .4s var(--slow);
+}
+.about a:hover{color:#F49BB4;border-bottom-color:rgba(217,113,143,.9)}
+.about p:last-of-type{margin-bottom:0}
+.about p b{color:var(--cream);font-weight:500}
+
+.figs{
+  display:flex;flex-wrap:wrap;gap:1px;
+  margin:clamp(30px,4vw,44px) 0 0;padding:0;list-style:none;
+  background:var(--hair2);border:1px solid var(--hair2);
+}
+.figs li{flex:1 1 110px;background:var(--black);padding:18px 20px}
+.figs b{
+  display:block;font-size:clamp(22px,2.2vw,32px);font-weight:600;
+  letter-spacing:.01em;color:var(--amber);line-height:1;
+}
+.figs span{
+  display:block;margin-top:8px;font-size:9px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--dim);
+}
+
+/* ==========================================================
+   SEQUENCE — sticky, full-bleed stills crossfading
+   ========================================================== */
+.seq{position:relative}
+.seq__pin{position:sticky;top:0;height:100vh;overflow:hidden}
+
+.seq__stage{position:absolute;inset:0;z-index:0}
+.seq__stage figure{
+  position:absolute;inset:0;margin:0;opacity:0;
+  transform:scale(1.07);
+  transition:opacity 1.1s var(--slow),transform 2.4s var(--slow);
+}
+.seq__stage figure.on{opacity:1;transform:scale(1)}
+.seq__stage img{width:100%;height:100%;object-fit:cover;filter:saturate(1.1) contrast(1.05) brightness(.9)}
+.seq__stage figure::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(0deg,rgba(6,8,13,.92) 0%,rgba(6,8,13,.6) 28%,rgba(6,8,13,.12) 60%,transparent 80%),
+    linear-gradient(90deg,rgba(6,8,13,.5),transparent 58%);
+}
+/* per-beat colour wash, gentle */
+.seq__stage figure[data-c="rose"]::after{box-shadow:inset 0 0 180px rgba(217,113,143,.2)}
+.seq__stage figure[data-c="teal"]::after{box-shadow:inset 0 0 180px rgba(62,154,168,.22)}
+.seq__stage figure[data-c="amber"]::after{box-shadow:inset 0 0 180px rgba(233,179,107,.2)}
+.seq__stage figure[data-c="viol"]::after{box-shadow:inset 0 0 180px rgba(155,139,208,.2)}
+
+.seq__cap{
+  position:relative;z-index:4;height:100%;
+  display:flex;align-items:flex-end;
+  padding-bottom:clamp(64px,10vh,116px);
+}
+.beats{position:relative;min-height:220px;width:100%;max-width:56ch}
+.beat{
+  position:absolute;left:0;right:0;bottom:0;
+  opacity:0;transform:translateY(20px);pointer-events:none;
+  transition:opacity .7s var(--slow),transform .7s var(--slow);
+}
+.beat.on{opacity:1;transform:none;pointer-events:auto}
+.beat__n{
+  font-size:10px;font-weight:500;letter-spacing:.36em;
+  text-transform:uppercase;margin-bottom:16px;
+}
+.beat h3{
+  font-size:clamp(26px,4.2vw,62px);
+  letter-spacing:.035em;color:#FBF7F0;margin-bottom:18px;
+  text-shadow:0 2px 34px rgba(6,8,13,.8);
+}
+.beat p{margin:0;font-size:clamp(15px,1.25vw,18.5px);color:rgba(241,235,225,.82);max-width:44ch}
+
+.beat[data-c="rose"] .beat__n{color:var(--rose)}
+.beat[data-c="teal"] .beat__n{color:var(--teal)}
+.beat[data-c="amber"] .beat__n{color:var(--amber)}
+.beat[data-c="viol"] .beat__n{color:var(--viol)}
+
+.ticks{
+  position:absolute;left:var(--pad);bottom:clamp(30px,5vh,54px);z-index:5;
+  display:flex;gap:7px;
+}
+.ticks i{
+  width:26px;height:2px;background:rgba(241,235,225,.2);
+  transition:background .6s var(--slow),box-shadow .6s var(--slow);
+}
+.ticks i.on{background:var(--amber);box-shadow:0 0 12px rgba(233,179,107,.7)}
+
+/* ==========================================================
+   WORK
+   ========================================================== */
+.sec{padding:clamp(74px,10vw,140px) 0}
+.head{
+  display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;
+  padding-bottom:16px;margin-bottom:clamp(26px,3.6vw,48px);
+  border-bottom:1px solid var(--hair2);
+}
+.head h2{font-size:clamp(20px,2.2vw,30px);letter-spacing:.06em;text-transform:uppercase;color:#FBF7F0}
+.head span{margin-left:auto;font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--dim)}
+
+/* a strip you scrub through, the way the work itself is watched */
+.grid{
+  display:flex;
+  gap:clamp(14px,1.6vw,24px);
+  overflow-x:auto;
+  scroll-snap-type:x proximity;
+  padding-bottom:20px;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(233,179,107,.55) rgba(241,235,225,.07);
+  overscroll-behavior-x:contain;
+}
+.grid > .film{
+  flex:0 0 clamp(212px,21vw,268px);
+  scroll-snap-align:start;
+}
+.grid::-webkit-scrollbar{height:4px}
+.grid::-webkit-scrollbar-track{background:rgba(241,235,225,.07)}
+.grid::-webkit-scrollbar-thumb{background:rgba(233,179,107,.55)}
+.grid::-webkit-scrollbar-thumb:hover{background:var(--amber)}
+
+.head__hint{
+  display:flex;align-items:center;gap:9px;
+  font-size:9.5px;font-weight:500;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--dim);
+}
+.head__hint i{
+  font-style:normal;color:var(--amber);
+  animation:nudge 2.2s var(--ease) infinite;
+}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+.film{
+  position:relative;display:block;text-decoration:none;color:inherit;
+  transition:transform .6s var(--ease);
+}
+.film:hover,.film:focus-visible{transform:translateY(-5px)}
+
+.film__f{
+  position:relative;overflow:hidden;
+  aspect-ratio:9/16;                   /* these are Shorts — vertical is the true shape */
+  border:1px solid var(--hair2);background:var(--navy2);
+}
+/* play affordance — appears on hover, no permanent UI clutter */
+.film__play{
+  position:absolute;inset:0;z-index:3;display:grid;place-items:center;
+  opacity:0;transition:opacity .5s var(--slow);
+}
+.film:hover .film__play,.film:focus-visible .film__play{opacity:1}
+.film__play span{
+  width:54px;height:54px;border-radius:50%;
+  border:1px solid rgba(251,247,240,.7);
+  background:rgba(6,8,13,.42);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  display:grid;place-items:center;
+}
+.film__play span::after{
+  content:'';width:0;height:0;margin-left:4px;
+  border-left:13px solid rgba(251,247,240,.95);
+  border-top:8px solid transparent;border-bottom:8px solid transparent;
+}
+/* view count — the single most persuasive number on a creator's page */
+.film__v{
+  position:absolute;bottom:13px;left:13px;z-index:2;
+  display:flex;align-items:baseline;gap:7px;
+  font-size:clamp(24px,2.4vw,32px);font-weight:600;
+  letter-spacing:-.01em;line-height:1;color:#FFFDF9;
+  text-shadow:0 2px 18px rgba(6,8,13,.95);
+}
+.film__v small{
+  font-size:9px;font-weight:500;letter-spacing:.22em;
+  text-transform:uppercase;opacity:.8;
+}
+.film__f img{
+  width:100%;height:100%;object-fit:cover;
+  filter:saturate(.95) contrast(1.06) brightness(.82);
+  transition:transform 1.1s var(--slow),filter .6s var(--slow);
+}
+.film:hover .film__f img{transform:scale(1.06);filter:saturate(1.14) contrast(1.05) brightness(1)}
+.film__f::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(6,8,13,.7),transparent 58%);
+  transition:opacity .6s var(--slow);
+}
+.film:hover .film__f::after{opacity:.55}
+
+.film__tag{
+  position:absolute;top:12px;left:12px;z-index:2;
+  font-size:8.5px;font-weight:500;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(251,247,240,.9);
+  padding:4px 9px;background:rgba(6,8,13,.6);border:1px solid var(--hair2);
+}
+.film__dur{
+  position:absolute;bottom:12px;right:12px;z-index:2;
+  font-size:10px;font-weight:500;letter-spacing:.08em;
+  color:rgba(251,247,240,.8);
+}
+.film__slot{
+  position:absolute;top:12px;right:12px;z-index:2;
+  font-size:8px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(233,179,107,.8);
+}
+
+.film__b{padding:17px 2px 0}
+.film__cl{
+  font-size:clamp(12px,1.05vw,14px);font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;
+}
+.film[data-c="rose"] .film__cl{color:var(--rose)}
+.film[data-c="teal"] .film__cl{color:var(--teal)}
+.film[data-c="amber"] .film__cl{color:var(--amber)}
+.film[data-c="viol"] .film__cl{color:var(--viol)}
+.film__t{
+  font-size:clamp(17px,1.5vw,21px);font-weight:500;
+  letter-spacing:.02em;color:#FBF7F0;
+}
+.film__r{margin-top:7px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+
+/* ==========================================================
+   END CARD
+   ========================================================== */
+.end{
+  position:relative;overflow:hidden;border-top:1px solid var(--hair2);
+  background:linear-gradient(180deg,var(--black) 0%,#080D18 55%,var(--black) 100%);
+}
+/* no photograph here — just a single warm light in the dark */
+.end::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(58% 52% at 28% 42%,rgba(233,179,107,.13),transparent 66%);
+}
+.end__in{position:relative;z-index:3;padding:clamp(84px,11vw,158px) 0 clamp(52px,6vw,80px)}
+.end h2{
+  font-size:clamp(30px,5.6vw,80px);letter-spacing:.04em;
+  color:#FBF7F0;max-width:19ch;text-shadow:0 2px 40px rgba(6,8,13,.8);
+}
+.end p{margin:24px 0 0;font-size:clamp(15px,1.35vw,19px);color:rgba(241,235,225,.82);max-width:46ch}
+.end__act{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:32px}
+
+.reach{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));
+  gap:1px;background:var(--hair2);border:1px solid var(--hair2);
+  margin-top:clamp(44px,5.5vw,72px);
+}
+.reach a{
+  background:rgba(6,8,13,.82);padding:19px 20px;text-decoration:none;
+  display:flex;flex-direction:column;gap:8px;
+  transition:background .5s var(--slow);
+}
+.reach a:hover{background:rgba(16,28,46,.9)}
+.reach span{font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--dim)}
+.reach b{
+  display:flex;align-items:center;gap:9px;
+  font-size:14px;font-weight:500;letter-spacing:.02em;
+  color:rgba(241,235,225,.92);word-break:break-word;
+  transition:color .45s var(--slow);
+}
+.reach b img{width:16px;height:16px;object-fit:contain;flex:none}
+.end .soc--big{margin-top:clamp(28px,3.6vw,42px)}
+.reach a:nth-child(1):hover b{color:#5BD07A}   /* whatsapp */
+.reach a:nth-child(2):hover b{color:var(--amber)} /* email */
+.reach a:nth-child(3):hover b{color:var(--rose)}  /* instagram */
+.reach a:nth-child(4):hover b{color:#FF6B6B}      /* youtube */
+.reach a:nth-child(5):hover b{color:var(--teal)}  /* linkedin */
+
+.foot{border-top:1px solid var(--hair2);padding:26px 0 46px;background:var(--black)}
+.foot__r{
+  display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between;
+  font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);
+}
+.foot__c{margin-top:16px;font-size:9px;line-height:1.7;color:#404859;text-transform:none;letter-spacing:.02em}
+.foot__c a{color:#515A6E;text-decoration:none}
+
+
+/* ==========================================================
+   ON SET — autoplaying proof clips
+   ========================================================== */
+.bts{padding:clamp(64px,8vw,110px) 0;border-top:1px solid var(--hair2)}
+.bts__g{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));
+  gap:clamp(14px,1.8vw,26px);max-width:860px;
+}
+.clip{
+  position:relative;overflow:hidden;aspect-ratio:9/16;
+  border:1px solid var(--hair2);background:var(--navy2);
+}
+.clip video{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(1.06) contrast(1.04) brightness(.94);
+}
+.clip::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(0deg,rgba(6,8,13,.62),transparent 46%);
+}
+.clip__l{
+  position:absolute;left:13px;bottom:12px;z-index:2;
+  font-size:9px;font-weight:500;letter-spacing:.26em;
+  text-transform:uppercase;color:rgba(251,247,240,.9);
+}
+.clip__d{
+  position:absolute;right:12px;top:12px;z-index:2;
+  display:flex;align-items:center;gap:6px;
+  font-size:8.5px;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(251,247,240,.75);
+}
+.clip__d b{width:5px;height:5px;border-radius:50%;background:var(--rose);box-shadow:0 0 8px var(--rose)}
+
+/* ---------- reveals ---------- */
+.js .rv{opacity:0;transform:translateY(22px)}
+.js .rv.in{opacity:1;transform:none;transition:opacity 1s var(--slow),transform 1s var(--slow)}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width:900px){
+  .card{padding-top:clamp(76px,12vh,110px)}
+  .card__g{grid-template-columns:1fr;gap:34px}
+  .card__pic{order:-1}
+  .frame{max-width:none;margin:0;aspect-ratio:3/2}
+  .frame img{object-position:50% 16%}
+
+  .about__g{grid-template-columns:1fr;gap:30px}
+  .about__g .clip{max-width:380px;margin:0 auto}
+
+  /* sticky sequence → stacked stills; pinning is miserable on a phone */
+  .seq{height:auto!important}
+  .seq__pin{position:static;height:auto;overflow:visible}
+  .seq__stage{display:none}
+  .seq__cap{display:block;height:auto;padding:0}
+  .beats{position:static;min-height:0;max-width:none;display:flex;flex-direction:column;gap:0}
+  .beat{
+    position:static;opacity:1!important;transform:none!important;pointer-events:auto;
+    padding:0 0 clamp(38px,7vw,58px);
+  }
+  .beat__f{display:block!important;position:relative;aspect-ratio:16/9;overflow:hidden;margin-bottom:20px;border:1px solid var(--hair2)}
+  .beat__f img{width:100%;height:100%;object-fit:cover;filter:saturate(1.1) contrast(1.05) brightness(.88)}
+  .beat__f::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,8,13,.5),transparent 60%)}
+  .beat p{max-width:none}
+  .ticks{display:none}
+}
+
+@media (min-width:901px){
+  .beat__f{display:none}
+}
+
+@media (max-width:560px){
+  .card h1{font-size:clamp(32px,11vw,56px);letter-spacing:.05em}
+  .card h1 em{letter-spacing:.1em}
+  .roles{font-size:9px;letter-spacing:.24em}
+  .roles li+li::before{margin:0 9px}
+  .grid > .film{flex:0 0 62vw}
+  .figs li{flex:1 1 44%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .js .rv{opacity:1;transform:none}
+  .grain{display:none}
+  .seq__stage figure{opacity:1}
+}
+</style>
+
+<div class="vig" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="reel" aria-hidden="true"><i id="reel"></i></div>
+
+<main>
+
+  <!-- ================= TITLE CARD ================= -->
+  <header class="card">
+    <div class="wrap card__in">
+      <div class="card__g">
+
+        <div class="card__txt">
+
+          <h1 class="title">Jatin<em>Mehta</em></h1>
+
+          <ul class="roles">
+            <li>Director</li><li>Videographer</li><li>Editor</li><li>Content Creator</li>
+          </ul>
+
+          <p class="lede card__lede">Five years turning raw footage into films people actually finish.</p>
+
+          <div class="card__act">
+            <ul class="soc">
+            <li><a href="https://www.instagram.com/jatinmehtavlogs/" target="_blank" rel="noopener" data-s="ig" aria-label="Instagram"><img src="ic-ig.png" alt="" width="16" height="16"></a></li>
+            <li><a href="https://www.youtube.com/@JatinMehtaVlogs" target="_blank" rel="noopener" data-s="yt" aria-label="YouTube"><img src="ic-yt.png" alt="" width="16" height="16"></a></li>
+            <li><a href="https://www.linkedin.com/in/jatin-mehta-620315280/" target="_blank" rel="noopener" data-s="li" aria-label="LinkedIn"><img src="ic-li.png" alt="" width="16" height="16"></a></li>
+          </ul>
+          </div>
+        </div>
+
+        <div class="card__pic">
+          <div class="frame">
+            <img src="jatin.jpg" alt="Jatin Mehta" width="700" height="875" fetchpriority="high">
+            <span class="frame__cap">Jatin Mehta</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= BRANDS ================= -->
+  <section class="brands" aria-label="Brands worked with">
+    <p class="brands__lab">Work for</p>
+    <div class="marq">
+      <ul>
+        <li><span class="mark"><img src="logo-loreal.png" alt="L&rsquo;Or&eacute;al" width="150" height="28"></span></li>
+        <li><span class="mark"><img src="logo-itc.png" alt="ITC" width="44" height="46"></span></li>
+        <li><span class="mark"><img class="inv" src="logo-bigm.png" alt="BigMuscles Nutrition" width="150" height="24"></span></li>
+        <li><span class="mark"><img src="logo-philips.png" alt="Philips" width="150" height="30"></span></li>
+        <li><span class="mark"><img src="logo-loreal.png" alt="" width="150" height="28" aria-hidden="true"></span></li>
+        <li><span class="mark"><img src="logo-itc.png" alt="" width="44" height="46" aria-hidden="true"></span></li>
+        <li><span class="mark"><img class="inv" src="logo-bigm.png" alt="" width="150" height="24" aria-hidden="true"></span></li>
+        <li><span class="mark"><img src="logo-philips.png" alt="" width="150" height="30" aria-hidden="true"></span></li>
+        <li><span class="mark"><img src="logo-loreal.png" alt="" width="150" height="28" aria-hidden="true"></span></li>
+        <li><span class="mark"><img src="logo-itc.png" alt="" width="44" height="46" aria-hidden="true"></span></li>
+        <li><span class="mark"><img class="inv" src="logo-bigm.png" alt="" width="150" height="24" aria-hidden="true"></span></li>
+        <li><span class="mark"><img src="logo-philips.png" alt="" width="150" height="30" aria-hidden="true"></span></li>
+        <li><span class="mark"><img src="logo-loreal.png" alt="" width="150" height="28" aria-hidden="true"></span></li>
+        <li><span class="mark"><img src="logo-itc.png" alt="" width="44" height="46" aria-hidden="true"></span></li>
+        <li><span class="mark"><img class="inv" src="logo-bigm.png" alt="" width="150" height="24" aria-hidden="true"></span></li>
+        <li><span class="mark"><img src="logo-philips.png" alt="" width="150" height="30" aria-hidden="true"></span></li>
+        <li><span class="mark"><img src="logo-loreal.png" alt="" width="150" height="28" aria-hidden="true"></span></li>
+        <li><span class="mark"><img src="logo-itc.png" alt="" width="44" height="46" aria-hidden="true"></span></li>
+        <li><span class="mark"><img class="inv" src="logo-bigm.png" alt="" width="150" height="24" aria-hidden="true"></span></li>
+        <li><span class="mark"><img src="logo-philips.png" alt="" width="150" height="30" aria-hidden="true"></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="about" id="about">
+    <div class="wrap">
+      <div class="about__g">
+        <div class="clip rv">
+          <video src="bts-1.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Jatin shooting content for a creator"></video>
+          <span class="clip__l">On a creator shoot</span>
+        </div>
+
+        <div class="rv">
+          <p class="eyebrow">Who&rsquo;s holding the camera</p>
+          <h2 class="title" style="margin-top:18px">I direct it, shoot it, and cut it</h2>
+          <p>Most films pass through three or four pairs of hands and lose something at every handover. I keep the whole chain: <b>direction, camera, edit</b>. What gets planned is what gets delivered.</p>
+          <p>Five years of it, for <b>L&rsquo;Or&eacute;al</b>, <b>Philips</b>, <b>ITC</b> and <b>BigMuscles</b>, and for creators whose numbers depend on it.</p>
+          <p>On <a href="https://www.instagram.com/jatinmehtavlogs/" target="_blank" rel="noopener">@jatinmehtavlogs</a> I make my own <b>UGC and lifestyle</b> work. That is where I learned the only lesson that matters: nobody owes you the second frame.</p>
+
+          <ul class="figs">
+            <li><b data-n="5" data-s="+">5+</b><span>Years</span></li>
+            <li><b>2.8M</b><span>Top film</span></li>
+            <li><b>3.3M+</b><span>Views on work below</span></li>
+            <li><b>60k+</b><span>Likes</span></li>
+          </ul>
+        </div>
+
+        <div class="clip rv">
+          <video src="bts-2.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Jatin behind the camera"></video>
+          <span class="clip__l">Behind the camera</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORK ================= -->
+  <section class="sec" id="work">
+    <div class="wrap">
+      <div class="head rv">
+        <h2 class="title">Selected work</h2>
+        <span class="head__hint">3.3M+ views <i>&rarr;</i> scroll</span>
+      </div>
+
+      <div class="grid">
+
+        <a class="film rv" data-c="viol" href="https://youtube.com/shorts/qfZbmaD9b5M" target="_blank" rel="noopener">
+          <div class="film__f">
+            <span class="film__tag">Creator campaign</span>
+            <img src="yt-bigm2.jpg" alt="Arush Bhola for BigMuscles Nutrition" width="540" height="960" loading="lazy">
+            <span class="film__play"><span></span></span>
+            <span class="film__v">2.8M <small>views</small></span>
+          </div>
+          <div class="film__b">
+            <div class="film__cl">BigMuscles &times; Arush Bhola</div>
+            <div class="film__t">Best performing cut</div>
+            <div class="film__r">50k likes &middot; Shot &amp; edited</div>
+          </div>
+        </a>
+
+        <a class="film rv" data-c="rose" href="https://youtube.com/shorts/X3CSraBAIWY" target="_blank" rel="noopener">
+          <div class="film__f">
+            <span class="film__tag">Fitness</span>
+            <img src="yt-rawfit.jpg" alt="Raw Fitness squats film" width="540" height="960" loading="lazy">
+            <span class="film__play"><span></span></span>
+            <span class="film__v">309K <small>views</small></span>
+          </div>
+          <div class="film__b">
+            <div class="film__cl">Raw Fitness</div>
+            <div class="film__t">Squats</div>
+            <div class="film__r">9.8k likes &middot; Shot &amp; edited</div>
+          </div>
+        </a>
+
+        <a class="film rv" data-c="teal" href="https://youtube.com/shorts/OTW3QtwQt3w" target="_blank" rel="noopener">
+          <div class="film__f">
+            <span class="film__tag">Creator campaign</span>
+            <img src="yt-bigm1.jpg" alt="Arush Bhola for BigMuscles Nutrition" width="540" height="960" loading="lazy">
+            <span class="film__play"><span></span></span>
+            <span class="film__v">173K <small>views</small></span>
+          </div>
+          <div class="film__b">
+            <div class="film__cl">BigMuscles &times; Arush Bhola</div>
+            <div class="film__t">Brand collab</div>
+            <div class="film__r">Shot &amp; edited</div>
+          </div>
+        </a>
+
+        <a class="film rv" data-c="amber" href="https://youtube.com/shorts/fASDZP_w-zo" target="_blank" rel="noopener">
+          <div class="film__f">
+            <span class="film__tag">Event film</span>
+            <img src="yt-engifest.jpg" alt="Engifest at Delhi Technological University" width="540" height="960" loading="lazy">
+            <span class="film__play"><span></span></span>
+            <span class="film__v">36.7K <small>views</small></span>
+          </div>
+          <div class="film__b">
+            <div class="film__cl">Delhi Technological University</div>
+            <div class="film__t">Engifest</div>
+            <div class="film__r">Directed &middot; shot &middot; cut</div>
+          </div>
+        </a>
+
+        <a class="film rv" data-c="rose" href="https://youtube.com/shorts/iUSawWbuVlA" target="_blank" rel="noopener">
+          <div class="film__f">
+            <span class="film__tag">Brand &middot; UGC</span>
+            <img src="yt-loreal.jpg" alt="L&rsquo;Or&eacute;al hair mask film" width="540" height="960" loading="lazy">
+            <span class="film__play"><span></span></span>
+            <span class="film__v">21K <small>views</small></span>
+          </div>
+          <div class="film__b">
+            <div class="film__cl">L&rsquo;Or&eacute;al</div>
+            <div class="film__t">Hair Mask</div>
+            <div class="film__r">Concept &middot; shot &middot; cut</div>
+          </div>
+        </a>
+
+        <a class="film rv" data-c="viol" href="https://youtube.com/shorts/5GG3yaIIoFs" target="_blank" rel="noopener">
+          <div class="film__f">
+            <span class="film__tag">Event reel</span>
+            <img src="yt-cincin.jpg" alt="Cincin event reel" width="540" height="960" loading="lazy">
+            <span class="film__play"><span></span></span>
+            <span class="film__v">500K <small>views</small></span>
+          </div>
+          <div class="film__b">
+            <div class="film__cl">Cincin</div>
+            <div class="film__t">Event reel</div>
+            <div class="film__r">Shot &amp; edited</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SEQUENCE ================= -->
+  <section class="seq" id="seq">
+    <div class="seq__pin">
+      <div class="seq__stage" aria-hidden="true">
+        <figure data-c="rose" class="on"><img src="clapper.jpg" alt="" width="1600" height="900"></figure>
+        <figure data-c="teal"><img src="neon.jpg" alt="" width="1600" height="900"></figure>
+        <figure data-c="amber"><img src="timeline.jpg" alt="" width="1600" height="900"></figure>
+        <figure data-c="viol"><img src="suite.jpg" alt="" width="1600" height="900"></figure>
+      </div>
+
+      <div class="seq__cap">
+        <div class="wrap" style="width:100%">
+          <div class="beats" id="beats">
+            <article class="beat on" data-c="rose">
+              <div class="beat__f"><img src="clapper.jpg" alt="Clapperboard marking a take" width="800" height="450"></div>
+              <div class="beat__n">Direct</div>
+              <h3 class="title">Solve it on set</h3>
+              <p>I plan coverage already knowing how it cuts. Fewer takes, and no rescue job waiting in the edit.</p>
+            </article>
+
+            <article class="beat" data-c="teal">
+              <div class="beat__f"><img src="neon.jpg" alt="Neon-lit street at night" width="800" height="450"></div>
+              <div class="beat__n">Shoot</div>
+              <h3 class="title">Light it like it matters</h3>
+              <p>Handheld, gimbal, or locked off. Whatever the story needs, and the city&rsquo;s own light when it is better than mine.</p>
+            </article>
+
+            <article class="beat" data-c="amber">
+              <div class="beat__f"><img src="timeline.jpg" alt="Editing timeline" width="800" height="450"></div>
+              <div class="beat__n">Cut</div>
+              <h3 class="title">Pace isn&rsquo;t speed</h3>
+              <p>I cut to the breath in the voice, not the beat in the track. The strongest thing in an edit is what I took out.</p>
+            </article>
+
+            <article class="beat" data-c="viol">
+              <div class="beat__f"><img src="suite.jpg" alt="Edit suite" width="800" height="450"></div>
+              <div class="beat__n">Deliver</div>
+              <h3 class="title">Every ratio, on the day</h3>
+              <p>Graded, mixed, captioned, versioned for wherever it lives. Handed over with handles.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="ticks" id="ticks" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+    </div>
+  </section>
+
+  <!-- ================= END CARD ================= -->
+  <section class="end" id="contact">
+    <div class="end__in">
+      <div class="wrap">
+        <p class="eyebrow rv">Fin</p>
+        <h2 class="title rv" style="margin-top:22px">Got footage that deserves better?</h2>
+        <p class="rv">Send the brief, the deadline, and roughly how much footage you&rsquo;re sitting on.</p>
+
+        <div class="end__act rv">
+          <a class="btn btn--amber" href="https://wa.me/918868871627" target="_blank" rel="noopener"><span>Message on WhatsApp</span><i>&rarr;</i></a>
+          <a class="btn" href="mailto:jatinmehta01432@gmail.com"><span>Send an email</span></a>
+        </div>
+
+        <ul class="soc soc--big rv">
+          <li><a href="https://www.instagram.com/jatinmehtavlogs/" target="_blank" rel="noopener" data-s="ig"><img src="ic-ig.png" alt="" width="24" height="24"><span>Instagram</span></a></li>
+          <li><a href="https://www.youtube.com/@JatinMehtaVlogs" target="_blank" rel="noopener" data-s="yt"><img src="ic-yt.png" alt="" width="24" height="24"><span>YouTube</span></a></li>
+          <li><a href="https://www.linkedin.com/in/jatin-mehta-620315280/" target="_blank" rel="noopener" data-s="li"><img src="ic-li.png" alt="" width="24" height="24"><span>LinkedIn</span></a></li>
+        </ul>
+
+        <div class="reach rv">
+          <a href="https://wa.me/918868871627" target="_blank" rel="noopener"><span>WhatsApp</span><b>+91 88688 71627</b></a>
+          <a href="mailto:jatinmehta01432@gmail.com"><span>Email</span><b>jatinmehta01432@gmail.com</b></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__r">
+        <span>Jatin Mehta, Director, Videographer, Editor</span>
+        <span>Open for work</span>
+      </div>
+      <div class="foot__c">
+        Four stills in the closing sequence are stock placeholders via Unsplash, pending Jatin&rsquo;s own frames.
+        Brand marks are the property of their respective owners, shown to indicate work delivered.
+      </div>
+    </div>
+  </footer>
+
+</main>
+
+<script>
+(function(){
+  'use strict';
+  var root=document.documentElement;
+  var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced) root.classList.add('js');
+
+  var cl=function(v,a,b){return v<a?a:(v>b?b:v)};
+  var phone=function(){return innerWidth<=900};
+
+  var reel=document.getElementById('reel');
+  var seq=document.getElementById('seq');
+  var figs=document.querySelectorAll('.seq__stage figure');
+  var beats=document.querySelectorAll('.beat');
+  var ticks=document.querySelectorAll('.ticks i');
+  var N=beats.length||1, last=0;
+
+  function sizeSeq(){ if(seq) seq.style.height = phone() ? '' : (N*100)+'vh'; }
+
+  var t=false;
+  function frame(){
+    var y=pageYOffset||root.scrollTop;
+    var dh=document.body.scrollHeight-innerHeight;
+    if(reel) reel.style.width=(dh>0?cl(y/dh,0,1):0)*100+'%';
+
+    if(seq && !phone()){
+      var r=seq.getBoundingClientRect();
+      var p=cl((-r.top)/(r.height-innerHeight||1),0,1);
+      var i=cl(Math.floor(p*N),0,N-1);
+      if(i!==last){
+        [figs,beats,ticks].forEach(function(set){
+          if(set[last]) set[last].classList.remove('on');
+          if(set[i])    set[i].classList.add('on');
+        });
+        last=i;
+      }
+    }
+    t=false;
+  }
+  function req(){ if(!t){t=true;requestAnimationFrame(frame);} }
+
+  addEventListener('scroll',req,{passive:true});
+  addEventListener('resize',function(){sizeSeq();req();});
+
+  if(!reduced&&'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
+    },{rootMargin:'0px 0px -10% 0px',threshold:.08});
+    document.querySelectorAll('.rv').forEach(function(el,i){
+      el.style.transitionDelay=((i%3)*90)+'ms'; io.observe(el);
+    });
+
+    var cio=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var el=e.target; cio.unobserve(el);
+        var tg=parseInt(el.dataset.n,10), sf=el.dataset.s||'', st=null;
+        (function run(ts){
+          if(!st) st=ts;
+          var k=cl((ts-st)/1500,0,1);
+          el.textContent=Math.round(tg*(1-Math.pow(1-k,3)))+sf;
+          if(k<1) requestAnimationFrame(run);
+        })(performance.now());
+      });
+    },{threshold:.6});
+    document.querySelectorAll('[data-n]').forEach(function(el){cio.observe(el)});
+  }
+
+  /* ---- BTS clips: true aspect from metadata, + autoplay guard ---- */
+  document.querySelectorAll('.clip video').forEach(function(v){
+    function fit(){
+      if(v.videoWidth && v.videoHeight && v.parentElement){
+        v.parentElement.style.aspectRatio = v.videoWidth+' / '+v.videoHeight;
+      }
+    }
+    v.addEventListener('loadedmetadata',fit);
+    if(v.readyState>=1) fit();
+
+    /* some browsers refuse the initial play(); retry once visible */
+    if(!reduced && 'IntersectionObserver' in window){
+      new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){ var t=v.play(); if(t&&t.catch) t.catch(function(){}); }
+          else v.pause();
+        });
+      },{threshold:.2}).observe(v);
+    }
+  });
+
+  sizeSeq(); frame();
+  addEventListener('load',function(){sizeSeq();frame();});
+})();
+</script>
