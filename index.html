@@ -1,3 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Jatin Mehta, director, videographer and editor. Five years of brand films, documentary and social work for L'Oreal, Philips, ITC and BigMuscles.">
+<meta name="theme-color" content="#06080D">
+<meta name="author" content="Jatin Mehta">
+<link rel="canonical" href="https://jatinmehta-1.github.io/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jatinmehta-1.github.io/">
+<meta property="og:title" content="Jatin Mehta, Director &amp; Videographer &amp; Editor">
+<meta property="og:description" content="Jatin Mehta, director, videographer and editor. Five years of brand films, documentary and social work for L'Oreal, Philips, ITC and BigMuscles.">
+<meta property="og:image" content="https://jatinmehta-1.github.io/jatin.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jatin Mehta, Director &amp; Videographer &amp; Editor">
+<meta name="twitter:description" content="Jatin Mehta, director, videographer and editor. Five years of brand films, documentary and social work for L'Oreal, Philips, ITC and BigMuscles.">
+<meta name="twitter:image" content="https://jatinmehta-1.github.io/jatin.jpg">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2306080D'/%3E%3Ctext y='74' x='50' text-anchor='middle' font-size='64'%3E%F0%9F%8E%AC%3C/text%3E%3C/svg%3E">
+
 <title>Jatin Mehta — A Reel in Four Parts</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -618,8 +640,11 @@ h1,h2,h3{margin:0;font-weight:600;line-height:1.06}
   .frame{max-width:none;margin:0;aspect-ratio:3/2}
   .frame img{object-position:50% 16%}
 
-  .about__g{grid-template-columns:1fr;gap:30px}
-  .about__g .clip{max-width:380px;margin:0 auto}
+  /* words first, then the two vertical clips side by side.
+     Stacking them full width made this section 2000px tall on a phone. */
+  .about__g{grid-template-columns:1fr 1fr;gap:14px 12px}
+  .about__g > div:not(.clip){order:-1;grid-column:1 / -1;margin-bottom:6px}
+  .about__g .clip{max-width:none;margin:0}
 
   /* sticky sequence → stacked stills; pinning is miserable on a phone */
   .seq{height:auto!important}
@@ -659,7 +684,8 @@ h1,h2,h3{margin:0;font-weight:600;line-height:1.06}
   .seq__stage figure{opacity:1}
 }
 </style>
-
+</head>
+<body>
 <div class="vig" aria-hidden="true"></div>
 <div class="grain" aria-hidden="true"></div>
 <div class="reel" aria-hidden="true"><i id="reel"></i></div>
@@ -1043,3 +1069,6 @@ h1,h2,h3{margin:0;font-weight:600;line-height:1.06}
   addEventListener('load',function(){sizeSeq();frame();});
 })();
 </script>
+
+</body>
+</html>
